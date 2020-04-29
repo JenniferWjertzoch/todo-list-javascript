@@ -10,11 +10,15 @@ button {
     border: 0;
     background: none;
     color: inherit;
+    /* I think buttons inherit font-family by default */
     font-family: inherit;
+    /* Why do you need this? */
     font-size: 100%;
+    /* I think buttons inherit font-weight by default */
     font-weight: inherit;
     margin: 0;
     padding: 0;
+    /* I think this is the default, so no need to set it */
     vertical-align: baseline;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -24,6 +28,7 @@ body {
     background: #f5f5f5;
     color: #4d4d4d;
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* If you use the font property above why not adding the font-weight and line-height as well */
     font-weight: 300;
     line-height: 1.4em;
     margin: 0 auto;
@@ -34,20 +39,24 @@ body {
 }
 
 .header {
+    /* You could combine all the background properties in one property */
     background-image: url('../img/fogg-coffee-break.png');
     background-repeat: no-repeat;
     background-size: contain;
     border-radius: 15px;
+    /* Why do you need a fixed height */
     height:400px;
     position: relative;
 }
 
+/* You shouldn't use an id to style an element */
 #date {
     bottom: 25px;
     color: #558b30;
     font-family: 'Titillium Web', sans-serif;
     font-size: 25px;
     left: 60px;
+    /* Why do you need to position this absolutely? */
     position: absolute;
 }
 
@@ -55,6 +64,7 @@ body {
     outline: 0;
 }
 
+/* Where is this class used? */
 .hidden {
     display: none;
 }
@@ -79,6 +89,7 @@ body {
 }
 
 .new-todo {
+    /* Removing the border and add it again? 🤔 */
     border: 0;
     border: 1px solid #999;
     box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
@@ -104,10 +115,13 @@ body {
 .main {
     border-top: 1px solid #e6e6e6;
     position: relative;
+    /* Why is z-index needed here */
     z-index: 2;
 }
 
 .todo-list {
+    /* I would always recommend to use this property on the li element directly,
+    because there it is actually set, changed or removed */
     list-style: none;
     margin: 0;
     padding: 0;
@@ -124,8 +138,10 @@ body {
     -webkit-appearance: none;
     border: none;
     bottom: 0;
+    /* Why is this needed? */
     height: auto;
     margin: auto 0;
+    /* Why do you need to position this absolute? */
     position: absolute;
     text-align: center;
     top: 0;
@@ -133,6 +149,7 @@ body {
 }
 
 .todo-list li .done + label {
+    /* Why don't you use this directly in the HTML? */
     background-image: url('../img/circle.svg');
     background-position: center left;
     background-repeat: no-repeat;
@@ -140,7 +157,9 @@ body {
 }
 
 .todo-list li .done:checked + label {
+    /* Why don't you use this directly in the HTML? */
     background-image: url('../img/verified.svg');
+    /* No need to repeat this property here, it is the same as above */
     background-size: 35px;
 }
 
@@ -163,6 +182,7 @@ body {
     height: 40px;
     margin: auto 0;
     margin-bottom: 20px;
+    /* Why do you need to position this absolute? */
     position: absolute;
     right: 10px;
     top: 0;
