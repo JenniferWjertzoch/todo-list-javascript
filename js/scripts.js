@@ -6,11 +6,10 @@ const ToDoList = (function() {
     const newTodoElement = document.querySelector('[data-element=new-todo]')
     const todoListElement = document.querySelector('[data-element=todo-list]')
 
-    const addDate = () => {
-        const dateElement = document.querySelector('[data-element=date]')
-        const options = {weekday: 'long', month: 'short', day: 'numeric'}
+    const setDateToSelectedElement = (selector, locale = 'de-DE', options = { weekday: 'long', month: 'short', day: 'numeric' }) => {
+        const dateElement = document.querySelector(selector)
         const today = new Date()
-        dateElement.innerHTML = today.toLocaleDateString('de-DE', options)
+        dateElement.innerHTML = today.toLocaleDateString(locale, options)
     }
 
 
@@ -60,7 +59,8 @@ const ToDoList = (function() {
 
 
     const init = function() {
-        addDate();
+        setDateToSelectedElement('[data-element=date]');
+        setDateToSelectedElement('[data-element=footer-date]', 'de-DE', {year: 'numeric', month: '2-digit', day: 'numeric'});
         newTodo();
     };
 
